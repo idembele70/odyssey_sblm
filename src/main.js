@@ -1,22 +1,43 @@
-const output = document.querySelector('#output');
+document.body.style.background = 'black';
+document.body.style.color = 'white';
 
-const mainDiv = document.createElement('div');
-mainDiv.id='divTP2';
-const paragragh = document.createElement('p');
-    paragragh.innerHTML = 'Langages basés sur ECMAScript :';
-const newLine = document.createElement('br');
+function selectElByQuery(queryName) { return document.querySelector(`${queryName}`) }
+function createEl(elName) { return document.createElement(`${elName}`) }
+const output = selectElByQuery('#output');
+const mainDiv = createEl('div');
+mainDiv.id = 'divTP3';
 
-const ulList = document.createElement('ul');
-const tabsLi = [];
-const tabsText = ['JavaScript', 'JScript', 'ActionScript', 'EX4'];
-    for (let i = 0; i < 4; i++) {
-       const liListe = document.createElement('li');
-        liListe.innerHTML = tabsText[i];
-        tabsLi.push(liListe);
-        ulList.appendChild(liListe);
+const paragraph = createEl('p');
+paragraph.innerHTML = 'Langages basés sur ECMAScript :';
+
+const dl = createEl('dl');
+const dlChildText = [
+    {
+        dt: 'JavaScript',
+        dd: `JavaScript est un langage de programmation de scripts principalement utilisé dans les pages web 
+                interactives mais aussi coté serveur.`
+    },
+    {
+        dt: 'JScript',
+        dd: 'JScript est le nom générique de plusieurs implémentations d\'ECMAScript 3 créées par Microsoft.'
+    },
+    {
+        dt: 'ActionScript',
+        dd: `ActionScript est le langage de programmation utilisé au sein d'applications clientes (Adobe Flash, 
+            Adobe Flex) et serveur (Flash media server, JRun, Macromedia Generator).`
+    },
+    {
+        dt: 'EX4',
+        dd: 'ECMAScript for XML (E4X) est une extension XML au langage ECMAScript.'
     }
-mainDiv.appendChild(paragragh);
-mainDiv.appendChild(newLine);
-mainDiv.appendChild(newLine);
-mainDiv.appendChild(ulList);
+]
+for (const text of dlChildText) {
+    const dt = createEl('dt');
+    const dd = createEl('dd');
+    dt.innerHTML = text.dt;
+    dd.innerHTML = text.dd;
+    dl.appendChild(dt);
+    dl.appendChild(dd);
+}
+mainDiv.appendChild(dl);
 output.appendChild(mainDiv);
