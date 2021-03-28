@@ -1,43 +1,54 @@
-document.body.style.background = 'black';
-document.body.style.color = 'white';
+// body style :
+document.body.style.background = "black";
+document.body.style.color = "white";
 
-function selectElByQuery(queryName) { return document.querySelector(`${queryName}`) }
-function createEl(elName) { return document.createElement(`${elName}`) }
-const output = selectElByQuery('#output');
-const mainDiv = createEl('div');
-mainDiv.id = 'divTP3';
+// function
+function creatElement(element) { return document.createElement(`${element}`); };
 
-const paragraph = createEl('p');
-paragraph.innerHTML = 'Langages basés sur ECMAScript :';
 
-const dl = createEl('dl');
-const dlChildText = [
-    {
-        dt: 'JavaScript',
-        dd: `JavaScript est un langage de programmation de scripts principalement utilisé dans les pages web 
-                interactives mais aussi coté serveur.`
-    },
-    {
-        dt: 'JScript',
-        dd: 'JScript est le nom générique de plusieurs implémentations d\'ECMAScript 3 créées par Microsoft.'
-    },
-    {
-        dt: 'ActionScript',
-        dd: `ActionScript est le langage de programmation utilisé au sein d'applications clientes (Adobe Flash, 
-            Adobe Flex) et serveur (Flash media server, JRun, Macromedia Generator).`
-    },
-    {
-        dt: 'EX4',
-        dd: 'ECMAScript for XML (E4X) est une extension XML au langage ECMAScript.'
-    }
-]
-for (const text of dlChildText) {
-    const dt = createEl('dt');
-    const dd = createEl('dd');
-    dt.innerHTML = text.dt;
-    dd.innerHTML = text.dd;
-    dl.appendChild(dt);
-    dl.appendChild(dd);
-}
-mainDiv.appendChild(dl);
-output.appendChild(mainDiv); 
+// Selector
+const output = document.body.querySelector('#output');
+
+// Exercice mini TP4
+// mainDiv
+const mainDiv = creatElement('div');
+mainDiv.id = "divTP4";
+output.appendChild(mainDiv);
+// form
+const form = creatElement("form");
+form.setAttribute("enctype", "multipart/form-data");
+form.setAttribute('method', 'post');
+form.setAttribute('action', 'upload.php');
+mainDiv.appendChild(form);
+// fieldset
+const fieldset = creatElement('fieldset');
+form.appendChild(fieldset);
+//legend
+const legend = creatElement(`legend`);
+legend.appendChild(document.createTextNode('Uploader une image'));
+fieldset.appendChild(legend);
+
+//div enfant
+const childDiv = creatElement('div');
+childDiv.style.textAlign = 'center';
+fieldset.appendChild(childDiv);
+
+// label of chilDiv
+const label = creatElement('label');
+label.setAttribute('for', 'inputUpload');
+label.innerText = 'Image à uploader :';
+childDiv.appendChild(label)
+// inputs of chilDiv
+const tabsinput = [creatElement('input'), creatElement('input')];
+// first input of childDiv
+tabsinput[0].setAttribute('type', 'file');
+tabsinput[0].setAttribute('name', 'inputUpload');
+tabsinput[0].id = 'inputUpload';
+childDiv.appendChild(tabsinput[0]);
+// Saut de ligne
+const sautLigner = creatElement('br');
+childDiv.appendChild(sautLigner);
+childDiv.appendChild(sautLigner.cloneNode(false));
+tabsinput[1].setAttribute('type','submit');
+tabsinput[1].setAttribute('value','Envoyer');
+childDiv.appendChild(tabsinput[1]);
