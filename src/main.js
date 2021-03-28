@@ -40,4 +40,4 @@ for (const text of dlChildText) {
     dl.appendChild(dd);
 }
 mainDiv.appendChild(dl);
-output.appendChild(mainDiv);
+output.appendChild(mainDiv); 
