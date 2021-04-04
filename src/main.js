@@ -4,14 +4,13 @@ document.body.style.color = "white";
 
 // function
 
-const zozorBooks = document.querySelector('#zozor-books');
-const li = {
-    0 : document.createElement('li') ,
-    1 : document.createElement('li'),
-}
-li[0].appendChild(document.createTextNode('Zozor à Pôle emploi'));
-zozorBooks.appendChild(li[0]);
-const child4 = zozorBooks.children[5];
-console.log(child4);
-li[1].innerText ="Zozor fait fortune";
-zozorBooks.insertBefore((li[1]),child4)
+const output = document.querySelector('#output');
+const table = output.querySelector('table');
+const firstTr = document.getElementsByTagName('tr')[2];
+const tr = document.createElement('tr');
+tr.innerHTML =
+    `<th scope="row">Firefox</th>
+    <td>Mozilla</td>
+    <td>27,8%</td> `;
+    console.log(firstTr);
+table.firstChild.insertBefore(tr,firstTr);
