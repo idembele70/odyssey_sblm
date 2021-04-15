@@ -3,14 +3,12 @@ document.body.style.background = "black";
 document.body.style.color = "white";
 
 // Selector
-const output = document.getElementById('output');
-const br = document.querySelectorAll('br')
-// function
-function brremove(elements = br) {
-    for (const element of elements) {
-        element.remove();
-    }
-}
-brremove();
+var output = document.getElementById('output');
+var child  = output.childNodes[0];
+console.log(child);
+while (child) {
+    output.removeChild(child);
 
+    child = output.firstChild;
+}
 
