@@ -4,21 +4,11 @@
 
 // Selector
 
-// Function creation d'élements
+// events 
+const output = document.getElementById('output');
 
-function createSimpleNode(name,item,child){
-    let elemns =  document.createElement(`${name}`)
-  for (const i in item){
-     elemns.setAttribute(i,item[i])
-  }
-  elemns.innerHTML = child;
-   return elemns
+const button = output.querySelector('button');
+
+button.onclick = function(){
+   console.log(this.innerHTML = "Vous m'avez cliquer");
 }
-
-const image = createSimpleNode('img', {src : 'pix.png', alt: 'Image idiote'})
-const link = createSimpleNode('a', {'class' : 'external', href : 'www.siteduzero.com'}, 'Liens vers le Site du Zero')
-
-document.body.firstElementChild.appendChild(image);
-document.body.firstElementChild.innerHTML += `<br/>`
-
-document.body.firstElementChild.appendChild(link);
