@@ -3,15 +3,12 @@ document.body.style.background = "black";
 document.body.style.color = "white";
 
 // Selector
+const ol = document.querySelector('#output > ol');
+const li = ol.children;
+for (let i = 0; i < li.length; i++) {
+    li[i].addEventListener('click', (e) => {
+        const newValue = prompt("Modifier le text", e.target.textContent)
+        e.target.innerHTML =newValue;
+    })
 
-// events 
-const output = document.getElementById('output');
-const button = output.children[0];
-function diClick(){
-    alert('Ceci est une alerte')
 }
-const buttonClone = button.cloneNode(true);
-console.log(buttonClone);
-output.appendChild(buttonClone)
-button.addEventListener('click', diClick)
-// button.removeEventListener('click',diClick)
