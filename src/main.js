@@ -3,8 +3,15 @@ document.body.style.background = "black";
 document.body.style.color = "white";
 
 // Selector
-const myFramework  = {};
+const output = document.querySelector("#output");
+const checkbox = output.querySelectorAll("li > input");
+const btnUnselect = output.querySelector(".unSelect");
 
-myFramework["checkThisForm"] = function(form) {
-    const inputs = form.querySelectorAll("input");
+function onSelectAll() {
+    checkbox.forEach(el => el.checked = true)
 }
+btnUnselect.onclick = () =>{
+    for (const item of checkbox) {
+        item.checked = false;
+    }
+};
