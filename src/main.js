@@ -4,14 +4,14 @@ document.body.style.color = "white";
 
 // Selector
 const output = document.querySelector("#output");
-const checkbox = output.querySelectorAll("li > input");
-const btnUnselect = output.querySelector(".unSelect");
 
-function onSelectAll() {
-    checkbox.forEach(el => el.checked = true)
-}
-btnUnselect.onclick = () =>{
-    for (const item of checkbox) {
-        item.checked = false;
-    }
-};
+const email = output.querySelectorAll("input")
+email.forEach(em => {
+     em.addEventListener(("blur"), _ => {
+        if (email[1].value == email[0].value) {
+            email.forEach(el => el.style.background = "green")
+        } else {
+            email.forEach(el => el.style.background = "red")
+        }
+    })
+})
