@@ -1,17 +1,15 @@
 // body style :
-document.body.style.background = "black";
+document.body.style.background = "#00000073";
 document.body.style.color = "white";
 
 // Selector
-const output = document.querySelector("#output");
+const td = document.querySelectorAll('td');
 
-const email = output.querySelectorAll("input")
-email.forEach(em => {
-     em.addEventListener(("blur"), _ => {
-        if (email[1].value == email[0].value) {
-            email.forEach(el => el.style.background = "green")
-        } else {
-            email.forEach(el => el.style.background = "red")
+td.forEach(el => {
+    el.onclick = _ => el.contentEditable = true;
+    el.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            el.contentEditable = false;
         }
     })
 })

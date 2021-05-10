@@ -7,14 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./src/main.js" defer></script>
+    <style>
+        tr,
+        th {
+            background: #000;
+        }
+
+        td {
+            padding: 15px;
+        }
+
+        tr th {
+            background: white;
+            color: #000;
+        }
+
+        table {
+            /* border-collapse: collapse; */
+            border: 2px solid rgb(200, 200, 200);
+
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            font-size: .8rem;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="output" style="display: flex; flex-direction:column;">
-        <label for="email">E-Mail</label>
-        <input type="email" name="email" id="email" placeholder="Entrez votre email">
-        <label for="confirmez">Confirmez</label>
-        <input type="email" name="confirmez" placeholder="confirmez votre email" id="confirmez">
+    <div id="output">
+        <table>
+            <tr>
+                <th scope="col">Fiche</th>
+                <th scope="col">Catégorie</th>
+            </tr>
+            <tr>
+                <td>Natural Selection 2</td>
+                <td>Jeux vidéo</td>
+            </tr>
+            <tr>
+                <td>Team Fortress 2</td>
+                <td>Jeux vidéo</td>
+            </tr>
+            <tr>
+                <td>Dreamweaver</td>
+                <td>Logiciels</td>
+            </tr>
+            <tr>
+                <td>Comment faire des frites</td>
+                <td>Cuisine</td>
+            </tr>
+            <tr>
+                <td>Comment faire un créneau</td>
+                <td>Conduite</td>
+            </tr>
+        </table>
     </div>
 </body>
 
